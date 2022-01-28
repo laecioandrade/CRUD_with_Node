@@ -1,6 +1,5 @@
-controllers/
-database/index.ts
-services/
+src/services/GetAllCategoriesService.ts
+src/controllers/GetAllCategoriesController.ts
 src/routes.ts
 
 # Logs
