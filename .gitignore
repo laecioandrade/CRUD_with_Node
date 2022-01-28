@@ -1,6 +1,5 @@
 controllers/
 database/index.ts
-entities/
 services/
 src/routes.ts
 
