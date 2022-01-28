@@ -1,3 +1,9 @@
+controllers/
+database/index.ts
+entities/
+services/
+src/routes.ts
+
 # Logs
 logs
 *.log
