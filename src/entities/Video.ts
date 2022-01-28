@@ -1,10 +1,13 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, ManyToOne, JoinColumn, Timestamp, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./Category";
 
 @Entity("videos")
 export class Video {
-    @PrimaryColumn()
-    id: string;
+    @PrimaryGeneratedColumn()
+    videoId: number;
+
+    @Column()
+    categoryId: number;
 
     @Column()
     name: string;
@@ -13,15 +16,12 @@ export class Video {
     description: string;
 
     @Column()
-    duration: number;
-
-    @Column()
-    category_id: string;
+    duration: string;
 
     @ManyToOne(() => Category)
-    @JoinColumn({name:"category_id"})
+    @JoinColumn({name:"categoryId"})
     category: Category;  
 
     @CreateDateColumn()
-    create_at: Date;
+    created_at: Date;
 }

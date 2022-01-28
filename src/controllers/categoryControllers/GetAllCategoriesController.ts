@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { GetAllCategoriesService } from "../../services/categorySevices/GetAllCategoriesService";
 
-export class GetAllcategoriesController{
+export class GetAllCategoriesController{
     async handle(request: Request, response: Response){
         const service = new GetAllCategoriesService();
         const categories = await service.execute();
