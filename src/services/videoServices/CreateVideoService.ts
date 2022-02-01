@@ -1,4 +1,5 @@
-import { getRepository, Timestamp } from "typeorm";
+import { getRepository } from "typeorm";
+import { Category } from "../../entities/Category";
 import { Video } from "../../entities/Video";
 
 type VideoRequest = {
@@ -16,7 +17,20 @@ export class CreateVideoService {
         duration
     }:VideoRequest):Promise<Video | Error> {
         const repo = getRepository(Video);
-        
+        const repoCategory = getRepository(Category);
+
+        //Melhorar função
+        //.
+        //.
+        //.
+        if(!((new Date('December 25, 1995 '+duration)).getTime()>0)){
+            return new Error("Invalid duration!");
+        };
+
+        if(!await repoCategory.findOne({categoryId})){
+            return new Error("Category does not exists!")
+        };
+
         if(await repo.findOne({name})){
             return new Error("Video already exists");
         }
@@ -29,5 +43,6 @@ export class CreateVideoService {
         })
         await repo.save(video);
         return video;
+        
     }
 }
