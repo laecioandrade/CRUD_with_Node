@@ -8,7 +8,7 @@ export class DeleteCategoryService {
         const repoVideo = getRepository(Video);
 
         if(!await repo.findOne(categoryId)){
-            return new Error("Category does not exists!");
+            return new Error("Category does not exists!!");
         }
 
         if(!await repoVideo.findOne(categoryId)){
